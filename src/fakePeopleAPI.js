@@ -80,7 +80,7 @@ export function postPerson(person) {
 // patchPerson(id, {age:30}) would patch thier age to 20
 export function patchPerson(id, patch) {
   return new Promise((resolve, reject) => {
-    let person = people.find((person) => person.id == id);
+    let person = people.find((person) => person.id === id);
     if (person) {
       Object.assign(person, patch);
       resolve({ data: { ...person } });

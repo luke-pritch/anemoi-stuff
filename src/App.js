@@ -1,6 +1,6 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "./components/Table/Table";
-import { getPeople, getPerson } from "./fakePeopleAPI";
+import { getPeople } from "./fakePeopleAPI";
 import AddPersonModal from "./components/Modal/Modal";
 
 // hook for getting data
@@ -22,15 +22,6 @@ function useFetch() {
 
 function App() {
   const [data, loading] = useFetch();
-  const memoizedData = React.useMemo(() => data);
-
-  const result = memoizedData.map((person) => ({
-    value: person.id,
-    name: person.name,
-    friends: person.friends,
-  }));
-
-  console.log(result);
 
   const columns = React.useMemo(
     () => [
@@ -66,7 +57,7 @@ function App() {
   return (
     <div>
       <AddPersonModal buttonName="Add Person" title="Add New Person" />
-      {!loading ? <Table columns={columns} data={memoizedData} /> : null}
+      {!loading ? <Table columns={columns} data={data} /> : null}
     </div>
   );
 }
