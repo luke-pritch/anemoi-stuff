@@ -5,8 +5,8 @@ This is what I have come up with to meet the specifications for the CRUD React A
 ```
 git clone https://github.com/luke-pritch/coding-challenge.git
 cd coding-challenge
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 I tried to use libraries related to the posting.
